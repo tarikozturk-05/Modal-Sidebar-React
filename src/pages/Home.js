@@ -1,16 +1,20 @@
 import React, { useContext } from 'react'
 import { useState } from 'react'
 import { FaBars } from 'react-icons/fa'
-import Sidebar from './Sidebar'
+import { Outlet, useNavigate } from 'react-router-dom'
+import Sidebar from '../Sidebar'
 
 const Home = () => {
+  const yolGosterici= useNavigate()
   const [open, setOpen] = useState(false)
   return (<div> 
-    <h2>home component</h2>
+    
     {!open &&  <i onClick={()=>setOpen(!open)} > <FaBars/>  </i>}
    
 
    {open && <Sidebar open={open} setOpen={setOpen}/>}
+   <button onClick={()=>yolGosterici("modal") } >Open Modal</button>
+   <Outlet/>
   </div>
   )
 }
