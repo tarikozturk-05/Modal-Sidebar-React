@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 
-const Sidebar = () => {
+const Sidebar = ({setOpen,open}) => {
   // const [open, setOpen] = useState(false)
  
       
@@ -17,7 +17,8 @@ const Sidebar = () => {
 
         <div className="images">
           <img src={logo} alt="" />
-          <FaTimes/>
+          <i onClick={()=>setOpen(!open)}><FaTimes/></i>
+       
         </div>
 
         <div>
